@@ -47,7 +47,7 @@ resource "aws_subnet" "internal_subnet" {
 resource "aws_subnet" "external_subnet" {
   vpc_id = "${aws_vpc.vpc.id}"
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
-  cidr_block = "${cidrsubnet(aws_vpc.vpc.cidr_block, 8, 10)}"
+  cidr_block = "${cidrsubnet(aws_vpc.vpc.cidr_block, 8, 100)}"
 
   tags {
     Name = "external-${replace(element(split("-", data.aws_availability_zones.available.names[0]),2), "/[0-9]/", "")}"
