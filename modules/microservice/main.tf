@@ -9,7 +9,7 @@ data "template_file" "user_data" {
 }
 
 resource "aws_launch_configuration" "service" {
-  image_id        = "ami-b5a893d3"
+  image_id        = "${var.service_image_id}"
   instance_type   = "${var.instance_type}"
 
   security_groups = ["${aws_security_group.instance.id}"]

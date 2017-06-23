@@ -36,3 +36,5 @@ variable "max_size" {
   description = "min num instances in ASG"
   default = 1
 }
+
+variable "service_image_id" {}
