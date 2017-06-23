@@ -22,7 +22,7 @@ module "vpc" {
 
 module "microservice" {
   #source = "../../modules/microservice"
-  source = "github.com/cageykg/spike1-pipeline//modules/microservice?ref=1.0.0"
+  source = "github.com/cageykg/spike1-pipeline//modules/microservice?ref=1.0.1"
 
   service_name = "service-one"
   service_port = 8081
