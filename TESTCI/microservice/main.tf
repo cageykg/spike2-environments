@@ -2,20 +2,20 @@ terraform {
   backend "s3" {
     region = "eu-west-2"
     bucket = "tabi-terraformpipeline"
-    key = "SPIKE2/TESTCI/service_two/terraform.tfstate"
-    profile = "developmentaws"      
+    key = "SPIKE2/TESTCI/microservice/terraform.tfstate"
+    profile = "developmentaws"    
   }
 }
  
 provider "aws" {
     region = "eu-west-2"
-    profile = "developmentaws"   
+    profile = "developmentaws"
 }
 
 module "microservice" {
-    source = "../../../service-modules/microservice"
+    source = "github.com/cageykg/spike2-service-modules//microservice"
 
-    service_name = "service-two"
+    service_name = "service-one"
     service_port = 8081
     service_image_id = "ami-4d3a2e29"
     vpc_name = "${data.terraform_remote_state.vpc.aws_vpc.vpc.name}"
