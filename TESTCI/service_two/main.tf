@@ -2,7 +2,7 @@ terraform {
   backend "s3" {
     region = "eu-west-2"
     bucket = "tabi-terraformpipeline"
-    key = "SPIKE2/DEV/service_two/terraform.tfstate"
+    key = "SPIKE2/TESTCI/service_two/terraform.tfstate"
     profile = "developmentaws"      
   }
 }

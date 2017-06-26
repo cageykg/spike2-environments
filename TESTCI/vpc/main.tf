@@ -2,7 +2,7 @@ terraform {
   backend "s3" {
     region = "eu-west-2"
     bucket = "tabi-terraformpipeline"
-    key    = "SPIKE2/DEV/vpc/terraform.tfstate"
+    key    = "SPIKE2/TESTCI/vpc/terraform.tfstate"
     profile = "developmentaws"
   }
 }
@@ -14,6 +14,6 @@ provider "aws" {
 
 module "vpc" {
   source     = "../../../networking-modules/vpc"
-  vpc_name   = "DEV"
-  cidr_block = "10.1.0.0/16"
+  vpc_name   = "TESTCI"
+  cidr_block = "10.5.0.0/16"
 }
