@@ -1,9 +1,9 @@
 provider "aws" {
-   region = "eu-west-1"
+   region = "eu-west-2"
 }
 
 resource "aws_s3_bucket" "terraform_pipeline" {
-    bucket = "kg-terraform-pipeline"
+    bucket = "tabi-terraformpipeline"
 
     versioning {
         enabled = true
