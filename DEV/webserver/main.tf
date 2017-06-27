@@ -2,7 +2,7 @@ terraform {
   backend "s3" {
     region = "eu-west-2"
     bucket = "tabi-terraformpipeline"
-    key = "SPIKE2/DEV/microservice/terraform.tfstate"
+    key = "SPIKE2/DEV/webserver/terraform.tfstate"
     profile = "developmentaws"    
   }
 }
@@ -12,10 +12,9 @@ provider "aws" {
     profile = "developmentaws"
 }
 
-module "microservice" {
-    source = "../../../service-modules/microservice"
+module "webserver" {
+    source = "../../../service-modules/webserver"
 
-    service_name = "service-one"
     service_port = 8081
     service_image_id = "ami-4d3a2e29"
     vpc_name = "${data.terraform_remote_state.vpc.aws_vpc.vpc.name}"
